@@ -124,7 +124,7 @@ def prepare(element_html, data):
         raise Exception('duplicate params variable name: %s' % name)
     if name in data['correct_answers']:
         raise Exception('duplicate correct_answers variable name: %s' % name)
-    data['params'][name] = display_answers
+    data['params'][name] = [display_answers, min_correct, max_correct]
     data['correct_answers'][name] = correct_answer_list
 
 
@@ -142,7 +142,7 @@ def render(element_html, data):
     if partial_credit and editable:
         show_answer_feedback = False
 
-    display_answers = data['params'].get(name, [])
+    display_answers = data['params'].get(name, [])[0]
     inline = pl.get_boolean_attrib(element, 'inline', INLINE_DEFAULT)
     submitted_keys = data['submitted_answers'].get(name, [])
 
@@ -179,8 +179,7 @@ def render(element_html, data):
         if not hide_help_text:
             # Should we reveal the depth of the choice?
             detailed_help_text = pl.get_boolean_attrib(element, 'detailed-help-text', DETAILED_HELP_TEXT_DEFAULT)
-            min_correct = pl.get_integer_attrib(element, 'min-correct', 1)
-            max_correct = pl.get_integer_attrib(element, 'max-correct', len(correct_answer_list))
+            min_correct, max_correct = data['params'][name][1:]
 
             if allow_none_correct:
                 insert_text = ' 0 or'
@@ -331,7 +330,7 @@ def parse(element_html, data):
     name = pl.get_string_attrib(element, 'answers-name')
 
     submitted_key = data['submitted_answers'].get(name, [])
-    all_keys = [a['key'] for a in data['params'][name]]
+    all_keys = [a['key'] for a in data['params'][name][0]]
     correct_answer_list = data['correct_answers'].get(name, [])
 
     allow_none_correct = pl.get_boolean_attrib(element, 'allow-none-correct', ALLOW_NONE_CORRECT_DEFAULT)
@@ -366,7 +365,7 @@ def grade(element_html, data):
     name = pl.get_string_attrib(element, 'answers-name')
     weight = pl.get_integer_attrib(element, 'weight', WEIGHT_DEFAULT)
     partial_credit = pl.get_boolean_attrib(element, 'partial-credit', PARTIAL_CREDIT_DEFAULT)
-    number_answers = len(data['params'][name])
+    number_answers = len(data['params'][name][0])
     partial_credit_method = pl.get_string_attrib(element, 'partial-credit-method', PARTIAL_CREDIT_METHOD_DEFAULT)
 
     submitted_keys = data['submitted_answers'].get(name, [])
@@ -403,7 +402,7 @@ def test(element_html, data):
 
     correct_answer_list = data['correct_answers'].get(name, [])
     correct_keys = [answer['key'] for answer in correct_answer_list]
-    number_answers = len(data['params'][name])
+    number_answers = len(data['params'][name][0])
     all_keys = [chr(ord('a') + i) for i in range(number_answers)]
 
     result = data['test_type']
