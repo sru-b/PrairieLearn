@@ -173,7 +173,7 @@ Attribute | Type | Default | Description
 `detailed-help-text` | boolean | false | Display detailed information in help text about the number of options to choose.
 `hide-answer-panel` | boolean | false | Option to not display the correct answer in the correct panel.
 `hide-letter-keys` | boolean | false | Hide the letter keys in the answer list, i.e., (a), (b), (c), etc.
-`allow-none-correct` | boolean | false | Display all incorrect answers with probability `1/(len_correct + 1)` and question may be Graded without selecting any options. Does not affect `max-correct` or `partial-credit`, and `min-correct` is not affected when "None" is not correct.
+`allow-none-correct` | boolean | false | Display all incorrect answers with probability `1/(len_correct + 1)` and question may be Graded without selecting any options. Does not affect `partial-credit`, but `min-correct` and `max-correct` might be lowered when not enough correct options are provided.
 
 Inside the `pl-checkbox` element, each choice must be specified with
 a `pl-answer` that has attributes:
