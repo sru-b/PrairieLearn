@@ -203,3 +203,38 @@
         </pl-checkbox>
     </div>
 </div>
+
+<div class="card my-2">
+    <div class="card-header">
+        Part 8
+    </div>
+
+    <div class="card-body">
+        <pl-question-panel>
+            <p>
+                Here, <code>allow-none-correct="true"</code>, which enables the question to display all incorrect options with probability <code>1/(len_correct + 1)</code>.
+                So that when no correct option is provided, "None" will always be true. 
+                When the attribute is enabled, the question instance allows students to <code>Save & Grade</code> without checking any options; instead of triggering a <code>format error</code>.
+                The help text is also updated accordingly.
+            </p>
+            <p>
+                Additionally, when <code>allow-none-correct="true"</code>, the maximum number of options the question is capable of displaying becomes <b>the number of incorrect options provided</b>.
+                This is to maintain consistent number of displayed options to curb potential cheating through counting number of options displayed, because when "None" is correct, the question cannot display any correct options.
+            </p>
+
+            <p>Group work provides which of the following benefits:</p>
+        </pl-question-panel>
+
+        <pl-checkbox answers-name="group_ans_v7" allow-none-correct="true" detailed-help-text="true">
+            <pl-answer correct="true">Exposure to new viewpoints from different fields and life experiences.</pl-answer>
+            <pl-answer correct="true">Improved creativity and overall work quality.</pl-answer>
+            <pl-answer>               The ability to work on a project by yourself.</pl-answer>
+            <pl-answer>               Having only one person make all of the decisions.</pl-answer>
+            <pl-answer correct="true">Constructive dialog and increased internal group motivation.</pl-answer>
+            <pl-answer correct="true">Personal accountability to the team to work on a project.</pl-answer>
+            <pl-answer correct="true">Friendship.</pl-answer>
+            <pl-answer>               The resources to work on a small project instead of a large project. </pl-answer>
+            <pl-answer correct="true">Prepares you for a team-environment in the workplace or a research group.</pl-answer>
+        </pl-checkbox>
+    </div>
+</div>
