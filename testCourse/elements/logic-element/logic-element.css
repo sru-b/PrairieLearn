@@ -4,14 +4,25 @@
 
 .logic-element-gate-canvas {
     height: 400px;
-    background-size: 30px 30px;
+    background-size: 35px 35px;
     background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
     outline-style: solid;
     outline-width: 2px;
     display: flex;
+    margin: 2rem;
+    justify-content: space-between;
+}
+
+.logic-element-input-node-bank {
+    display: flex;
     flex-direction: column;
     justify-content: space-evenly;
-    margin: 2rem;
+}
+
+.logic-element-output-node-bank {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
 }
 
 .logic-element-input-node {
@@ -28,4 +39,26 @@
     align-content: center;
     flex-direction: column;
 }
-  
+
+.logic-element-output-node {
+    height: 30px;
+    width: 30px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    left: 15px;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+
+.logic-element-body-region {
+    display: flex;
+}
+
+.logic-element-body-region > img {
+    height: 50px;
+}

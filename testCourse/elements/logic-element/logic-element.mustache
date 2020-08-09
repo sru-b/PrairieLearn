@@ -1,7 +1,21 @@
 <div class="logic-element">
     <div class="logic-element-gate-canvas">
-        {{#input_nodes}}
+        <div class="logic-element-input-node-bank">
+            {{#input_nodes}}
             <div class="logic-element-input-node">{{node}}</div>
-        {{/input_nodes}}
+            {{/input_nodes}}
+        </div>
+        
+        <div class="logic-element-body-region">
+            {{#logic_ops}}
+            <img src="{{image_url}}/{{op}}.png">
+            {{/logic_ops}}
+        </div>
+
+        <div class="logic-element-output-node-bank">
+            {{#output_nodes}}
+            <div class="logic-element-output-node">{{node}}</div>
+            {{/output_nodes}}
+        </div>
     </div>
 </div>
