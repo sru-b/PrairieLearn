@@ -1,0 +1,11 @@
+{
+    "controller": "logic-element.py",
+    "dependencies": {
+        "elementStyles": [
+            "logic-element.css"
+        ],
+        "clientFilesCourseStyles": [
+            "sharedElementStyles.css"
+        ]
+    }
+}

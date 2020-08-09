@@ -1,0 +1,31 @@
+.logic-element .big {
+    font-size: 20px;
+}
+
+.logic-element-gate-canvas {
+    height: 400px;
+    background-size: 30px 30px;
+    background-image: radial-gradient(circle, #000000 1px, rgba(0, 0, 0, 0) 1px);
+    outline-style: solid;
+    outline-width: 2px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    margin: 2rem;
+}
+
+.logic-element-input-node {
+    height: 30px;
+    width: 30px;
+    background-color: black;
+    border-radius: 50%;
+    position: relative;
+    right: 15px;
+    color: white;
+    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+    flex-direction: column;
+}
+  
